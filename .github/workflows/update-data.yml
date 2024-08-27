@@ -1,0 +1,26 @@
+name: Update Data
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update-data]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Update data.json
+        run: |
+          echo "${{ github.event.client_payload.data }}" >> data.json
+          jq -s '.' data.json > temp.json && mv temp.json data.json
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data.json
+          git commit -m "Update data.json via GitHub Action"
+          git push

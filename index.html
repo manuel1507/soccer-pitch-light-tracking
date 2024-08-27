@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Utilizzo Luci</title>
+    <title>Gestione Utilizzo Luci Campo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Registro Utilizzo Luci del Campo</h1>
+    <h1>Gestione Utilizzo Luci Campo</h1>
+
     <form id="lightUsageForm">
         <label for="date">Data:</label>
-        <input type="date" id="date" required>
+        <input type="date" id="date" required><br><br>
+        
         <label for="hours">Ore di Luce Utilizzate:</label>
-        <input type="number" id="hours" step="0.1" required>
+        <input type="number" id="hours" required><br><br>
+
         <label for="team">Squadra:</label>
         <select id="team" required>
             <option value="Under8">Under8</option>
@@ -19,12 +48,16 @@
             <option value="Under12">Under12</option>
             <option value="Under14">Under14</option>
             <option value="Open">Open</option>
-        </select>
-        <button type="submit">Aggiungi Voce</button>
+        </select><br><br>
+
+        <button type="submit">Aggiungi</button>
     </form>
 
-    <h2>Voci Registrate</h2>
-    <table id="entriesTable" border="1">
+    <button id="clearButton">Cancella Tutti gli Inserimenti</button>
+    <button id="exportButton">Esporta in CSV</button>
+
+    <h2>Registrazioni:</h2>
+    <table id="entriesTable">
         <thead>
             <tr>
                 <th>Data</th>
@@ -36,9 +69,6 @@
         <tbody>
         </tbody>
     </table>
-
-    <button id="exportButton">Esporta in CSV</button>
-    <button id="clearButton">Cancella Tutte le Voci</button>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Pitch Light Usage</title>
+</head>
+<body>
+    <h1>Record Light Usage</h1>
+    <form id="lightUsageForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        <label for="hours">Hours of Light Used:</label>
+        <input type="number" id="hours" step="0.1" required>
+        <button type="submit">Add Entry</button>
+    </form>
+
+    <h2>Recorded Entries</h2>
+    <table id="entriesTable" border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Hours of Light Used</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <button id="exportButton">Export to CSV</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

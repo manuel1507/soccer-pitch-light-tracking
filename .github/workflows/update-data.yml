@@ -3,7 +3,7 @@ name: Update Data
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [update-data]
+    types: [update-data, delete-data, clear-data]
 
 jobs:
   update:
@@ -14,8 +14,14 @@ jobs:
 
       - name: Update data.json
         run: |
-          echo "${{ github.event.client_payload.data }}" >> data.json
-          jq -s '.' data.json > temp.json && mv temp.json data.json
+          if [ "${{ github.event.action }}" == "update-data" ]; then
+            echo "${{ github.event.client_payload.data }}" >> data.json
+            jq -s '.' data.json > temp.json && mv temp.json data.json
+          elif [ "${{ github.event.action }}" == "delete-data" ]; then
+            jq 'del(.[$(jq '. | length - 1')])' data.json > temp.json && mv temp.json data.json
+          elif [ "${{ github.event.action }}" == "clear-data" ]; then
+            echo "[]" > data.json
+          fi
 
       - name: Commit changes
         run: |

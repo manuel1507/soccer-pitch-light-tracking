@@ -17,7 +17,7 @@ document.getElementById('lightUsageForm').addEventListener('submit', function (e
             method: 'POST',
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token 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',
+                'Authorization': 'token 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',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
@@ -67,7 +67,7 @@ document.getElementById('clearButton').addEventListener('click', function () {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token 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',
+            'Authorization': 'token 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',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -81,7 +81,7 @@ function removeEntryFromServer(entry) {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token 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',
+            'Authorization': 'token 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',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({

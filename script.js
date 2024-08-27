@@ -13,11 +13,11 @@ document.getElementById('lightUsageForm').addEventListener('submit', function (e
         const newEntry = { date, hours, team };
         addEntryToTable(newEntry);
 
-        fetch('https://api.github.com/repos/YOUR_GITHUB_USERNAME/soccer-pitch-light-tracking/dispatches', {
+        fetch('https://api.github.com/repos/manuel1507/soccer-pitch-light-tracking/dispatches', {
             method: 'POST',
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token YOUR_GITHUB_PERSONAL_ACCESS_TOKEN',
+                'Authorization': 'token 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',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
@@ -63,11 +63,11 @@ document.getElementById('clearButton').addEventListener('click', function () {
     const tableBody = document.getElementById('entriesTable').getElementsByTagName('tbody')[0];
     tableBody.innerHTML = "";
 
-    fetch('https://api.github.com/repos/YOUR_GITHUB_USERNAME/soccer-pitch-light-tracking/dispatches', {
+    fetch('https://api.github.com/repos/manuel1507/soccer-pitch-light-tracking/dispatches', {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token YOUR_GITHUB_PERSONAL_ACCESS_TOKEN',
+            'Authorization': 'token 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',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -77,11 +77,11 @@ document.getElementById('clearButton').addEventListener('click', function () {
 });
 
 function removeEntryFromServer(entry) {
-    fetch('https://api.github.com/repos/YOUR_GITHUB_USERNAME/soccer-pitch-light-tracking/dispatches', {
+    fetch('https://api.github.com/repos/manuel1507/soccer-pitch-light-tracking/dispatches', {
         method: 'POST',
         headers: {
             'Accept': 'application/vnd.github.v3+json',
-            'Authorization': 'token YOUR_GITHUB_PERSONAL_ACCESS_TOKEN',
+            'Authorization': 'token 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',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
